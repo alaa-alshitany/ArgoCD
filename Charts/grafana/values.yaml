@@ -19,3 +19,7 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 8Gi
+
+serviceAccount:
+  create: true
+  name: grafana
