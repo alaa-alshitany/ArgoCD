@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: grafana/grafana
+  tag: 8.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources: {}
+
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 8Gi
