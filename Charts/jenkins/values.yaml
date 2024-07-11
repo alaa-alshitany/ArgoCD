@@ -17,3 +17,9 @@ ingress:
     - host: jenkins.example.com
       paths: ["/"]
   tls: []
+
+rbac:
+  create: true
+serviceAccount:
+  create: true
+  name: ""
