@@ -22,4 +22,4 @@ rbac:
   create: true
 serviceAccount:
   create: true
-  name: ""
+  name: "jenkins-sa"

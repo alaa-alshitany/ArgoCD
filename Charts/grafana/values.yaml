@@ -20,7 +20,7 @@ ingress:
 
 serviceAccount:
   create: true
-  name: ""
+  name: "grafana-sa"
 
 rbac:
   create: true
