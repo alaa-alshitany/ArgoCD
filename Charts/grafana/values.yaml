@@ -2,24 +2,25 @@ replicaCount: 1
 
 image:
   repository: grafana/grafana
-  tag: 8.0.0
+  tag: 7.5.5
   pullPolicy: IfNotPresent
 
 service:
-  type: NodePort
-  port: 80
+  type: ClusterIP
+  port: 3000
+  nodePort: null
 
 ingress:
-  enabled: false
-
-resources: {}
-
-persistence:
   enabled: true
-  accessModes:
-    - ReadWriteOnce
-  size: 8Gi
+  annotations: {}
+  hosts:
+    - host: grafana.example.com
+      paths: ["/"]
+  tls: []
 
 serviceAccount:
   create: true
-  name: grafana
+  name: ""
+
+rbac:
+  create: true
