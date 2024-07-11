@@ -20,6 +20,13 @@ ingress:
 
 rbac:
   create: true
+
 serviceAccount:
   create: true
   name: "jenkins-sa"
+
+autoscaling:
+  enabled: false 
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
