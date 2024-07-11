@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: jenkins/jenkins
+  tag: lts
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+  nodePort: null
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: jenkins.example.com
+      paths: ["/"]
+  tls: []
