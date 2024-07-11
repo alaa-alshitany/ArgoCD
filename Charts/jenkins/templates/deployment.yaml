@@ -14,7 +14,7 @@ spec:
       labels:
         {{- include "jenkins.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ .Values.rbac.serviceAccountName }}
+      serviceAccountName: {{ .Values.serviceAccount.name | default (include "jenkins.fullname" .) }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
