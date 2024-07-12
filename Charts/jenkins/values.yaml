@@ -6,17 +6,12 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 8080
   nodePort: null
 
 ingress:
-  enabled: true
-  annotations: {}
-  hosts:
-    - host: jenkins.example.com
-      paths: ["/"]
-  tls: []
+  enabled: false
 
 rbac:
   create: true
