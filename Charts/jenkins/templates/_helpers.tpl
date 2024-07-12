@@ -31,3 +31,14 @@ app.kubernetes.io/name: {{ include "jenkins.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/component: jenkins
 {{- end -}}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "jenkins.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "jenkins.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
