@@ -11,10 +11,10 @@ metadata:
     {{- end }}
 spec:
   rules:
-    - host: {{ .Values.ingress.hosts[0].host | quote }}
+    - host: {{ (index .Values.ingress.hosts 0).host | quote }}
       http:
         paths:
-          - path: {{ .Values.ingress.hosts[0].paths[0] }}
+          - path: {{ (index .Values.ingress.hosts 0).host | quote }}
             pathType: ImplementationSpecific
             backend:
               service:
@@ -24,7 +24,7 @@ spec:
   {{- if .Values.ingress.tls }}
   tls:
     - hosts:
-        - {{ .Values.ingress.hosts[0].host | quote }}
-      secretName: {{ .Values.ingress.tls[0].secretName }}
+        - {{ (index .Values.ingress.hosts 0).host | quote }}
+      secretName: {{ (index .Values.ingress.tls 0).secretName }}
   {{- end }}
 {{- end }}
