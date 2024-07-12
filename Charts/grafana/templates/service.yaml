@@ -10,8 +10,5 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: 3000
       protocol: TCP
-      {{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-      {{- end }}
   selector:
     {{- include "grafana.selectorLabels" . | nindent 4 }}
