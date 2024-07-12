@@ -6,6 +6,13 @@ Return the fully qualified name of the application.
 {{- end -}}
 
 {{/*
+Return the name of the application.
+*/}}
+{{- define "jenkins.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
 Return the common labels for the application.
 */}}
 {{- define "jenkins.labels" -}}
@@ -23,11 +30,4 @@ Return the selector labels for the application.
 app.kubernetes.io/name: {{ include "jenkins.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/component: jenkins
-{{- end -}}
-
-{{/*
-Return the name of the application.
-*/}}
-{{- define "jenkins.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
