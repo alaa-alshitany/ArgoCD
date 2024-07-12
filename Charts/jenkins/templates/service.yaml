@@ -8,10 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 8080
+      targetPort: 3000
       protocol: TCP
-      {{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-      {{- end }}
   selector:
     {{- include "jenkins.selectorLabels" . | nindent 4 }}
