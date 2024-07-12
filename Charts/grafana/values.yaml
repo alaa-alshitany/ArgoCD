@@ -15,7 +15,8 @@ ingress:
   annotations: {}
   hosts:
     - host: grafana.example.com
-      paths: ["/"]
+      paths: 
+        - "/"
   tls: []
 
 serviceAccount:
