@@ -16,6 +16,9 @@ service:
 ingress:
   enabled: false
 
+rbac:
+  create: true
+  
 autoscaling:
   enabled: false
   minReplicas: 1
