@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: prometheus-community/prometheus
+  repository: bitnami/prometheus
   tag: lts
   pullPolicy: IfNotPresent
 
