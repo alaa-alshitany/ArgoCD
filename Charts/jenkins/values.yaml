@@ -28,6 +28,7 @@ autoscaling:
 
 persistence:
   enabled: true
-  storageClass: "standard"  
+  existingClaim: "jenkins-pvc"
+  storageClass: "standard"
   accessMode: "ReadWriteOnce"
   size: "8Gi"
