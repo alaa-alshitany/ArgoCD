@@ -12,5 +12,9 @@ spec:
       port: 80
       targetPort: {{ .Values.service.port }}
       protocol: TCP
+    - name: jnlp
+      port: 50000
+      targetPort: 50000
+      protocol: TCP
   selector:
     {{- include "jenkins.selectorLabels" . | nindent 4 }}
